@@ -1,6 +1,6 @@
 import 'package:dart_frog/dart_frog.dart';
 
 Response onRequest(RequestContext context) {
-  // TODO: implement route handler
-  return Response(body: 'This is a new route for list!');
+  final value = context.read<String>();
+  return Response(body: value);
 }
