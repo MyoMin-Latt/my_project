@@ -1,1 +1,15 @@
 curl --request GET --url http://localhost:8080
+
+# will create routes
+dart_frog new route "/lists/index"
+dart_frog new route "/items/index"
+
+curl --request GET --url http://localhost:8080/lists
+curl --request GET --url http://localhost:8080/items
+
+
+# Creates routes/hello/_middleware.dart
+dart_frog new middleware "/"
+
+
+
