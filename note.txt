@@ -5,17 +5,26 @@ dart_frog new route "/lists/index"
 dart_frog new route "/items/index"
 dart_frog new route "/db/fbase"
 dart_frog new route "/db/fbase/[id]"
+dart_frog new route "/db/mongodb/[id]"
 
+curl --request GET --url http://localhost:8080
 curl --request GET --url http://localhost:8080/lists
 curl --request GET --url http://localhost:8080/items
 curl --request GET --url http://localhost:8080/db/fbase
+curl --request GET --url http://localhost:8080/db/mongodb
 
 
 # Creates routes/hello/_middleware.dart
 dart_frog new middleware "/"
 dart_frog new middleware "/db/fbase"
+dart_frog new middleware "/db/mongodb"
 
 curl --request POST --url http://localhost:8080/db/fbase --header 'Content-Type: application/json' --data '{"name": "shopping"}'
 curl --request PATCH --url http://localhost:8080/db/fbase/05E5djMkLcQscqFUD3j0 --header 'Content-Type: application/json' --data '{"name": "fashion update"}'
 curl --request DELETE --url http://localhost:8080/db/fbase/05E5djMkLcQscqFUD3j0
 
+curl --request POST --url http://localhost:8080/db/mongodb --header 'Content-Type: application/json' --data '{"name": "personal"}'
+curl --request PATCH --url http://localhost:8080/db/mongodb/4a0a339b0c6d0553897752a84115adc81c75812e1743eb2519258e5000f70deb --header 'Content-Type: application/json' --data '{"name": "personal update"}'
+curl --request DELETE --url http://localhost:8080/db/mongodb/4a0a339b0c6d0553897752a84115adc81c75812e1743eb2519258e5000f70deb
+
+* need to add 0.0.0.0 for mongodb network access
