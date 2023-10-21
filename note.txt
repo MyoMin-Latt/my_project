@@ -3,13 +3,19 @@ curl --request GET --url http://localhost:8080
 # will create routes
 dart_frog new route "/lists/index"
 dart_frog new route "/items/index"
+dart_frog new route "/db/fbase"
+dart_frog new route "/db/fbase/[id]"
 
 curl --request GET --url http://localhost:8080/lists
 curl --request GET --url http://localhost:8080/items
+curl --request GET --url http://localhost:8080/db/fbase
 
 
 # Creates routes/hello/_middleware.dart
 dart_frog new middleware "/"
+dart_frog new middleware "/db/fbase"
 
-
+curl --request POST --url http://localhost:8080/db/fbase --header 'Content-Type: application/json' --data '{"name": "shopping"}'
+curl --request PATCH --url http://localhost:8080/db/fbase/05E5djMkLcQscqFUD3j0 --header 'Content-Type: application/json' --data '{"name": "fashion update"}'
+curl --request DELETE --url http://localhost:8080/db/fbase/05E5djMkLcQscqFUD3j0
 
