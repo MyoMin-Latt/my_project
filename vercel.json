@@ -1,5 +1,4 @@
 {
     "buildCommand": "1",
-    "devCommand": "dart_frog dev",
-    "framework": "dart"
+    "devCommand": "dart_frog dev"
 }
