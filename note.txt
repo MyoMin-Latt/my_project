@@ -12,6 +12,7 @@ curl --request GET --url http://localhost:8080/lists
 curl --request GET --url http://localhost:8080/items
 curl --request GET --url http://localhost:8080/db/fbase
 curl --request GET --url http://localhost:8080/db/mongodb
+curl --request GET --url http://localhost:8080/cache/redis
 
 
 # Creates routes/hello/_middleware.dart
@@ -28,3 +29,21 @@ curl --request PATCH --url http://localhost:8080/db/mongodb/4a0a339b0c6d05538977
 curl --request DELETE --url http://localhost:8080/db/mongodb/4a0a339b0c6d0553897752a84115adc81c75812e1743eb2519258e5000f70deb
 
 * need to add 0.0.0.0 for mongodb network access
+
+docker run -d --name postgres-dartfrog-container -p 5432:5432 -e POSTGRES_PASSWORD=pass123 postgres
+docker run -d --name postgres-dartfrog-container -p 5432:5432 -e POSTGRES_PASSWORD=pass123 postgres
+docker ps
+docker exec -it postgres-dartfrog-container psql -U postgres
+CREATE DATABASE mytasklists;
+
+
+
+
+
+
+
+
+
+
+docker run -d --name test-container -p 5432:5432 -e POSTGRES_PASSWORD=test -d postgres
+
