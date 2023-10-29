@@ -1,4 +1,3 @@
 {
-    "buildCommand": "1",
     "devCommand": "dart_frog dev"
 }
